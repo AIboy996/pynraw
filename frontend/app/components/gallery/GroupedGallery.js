@@ -59,36 +59,14 @@ export default function GroupedGallery({ photos, groupKey, titlePrefix, apiBase,
     setCurrentIndex(index);
   }
 
-  function jumpToPrevGroup() {
-    if (currentIndex <= 0) return;
-    jumpToGroup(currentIndex - 1);
-  }
-
-  function jumpToNextGroup() {
-    if (currentIndex >= keys.length - 1) return;
-    jumpToGroup(currentIndex + 1);
-  }
-
   return (
     <section className="group-list">
       <div className="group-rail" aria-label="分类快速定位滑轨">
         <div className="group-rail-track">
-          <span
-            className="group-rail-thumb"
-            style={{ top: `${keys.length <= 1 ? 0 : (currentIndex / (keys.length - 1)) * 100}%` }}
-          />
+          <span>速查🔍</span>
         </div>
         <div className="group-rail-panel">
           <div className="group-rail-title">分类轴</div>
-          <div className="group-rail-current">当前: {keys[currentIndex]}</div>
-          <div className="group-rail-actions">
-            <button className="ghost" type="button" onClick={jumpToPrevGroup} disabled={currentIndex <= 0}>
-              上一个
-            </button>
-            <button className="ghost" type="button" onClick={jumpToNextGroup} disabled={currentIndex >= keys.length - 1}>
-              下一个
-            </button>
-          </div>
           <div className="group-rail-list">
             {keys.map((key, idx) => (
               <button

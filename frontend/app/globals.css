@@ -105,13 +105,17 @@ body {
 .icon-toggle {
   width: 36px;
   height: 36px;
-  padding: 0;
-  border-radius: 999px;
+  padding: 5px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #ececec;
   color: #1b1b1b;
+}
+
+.icon-toggle:hover {
+  background: #e0e0e0;
+  color: #111;
 }
 
 .nav-icon {
@@ -398,30 +402,22 @@ button.ghost {
 .group-rail {
   position: fixed;
   right: 18px;
-  top: 110px;
+  top: 30%;
   z-index: 20;
   display: flex;
   align-items: stretch;
-  height: min(72vh, 620px);
 }
 
 .group-rail-track {
-  width: 20px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.85);
-  position: relative;
-}
-
-.group-rail-thumb {
-  position: absolute;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #171717;
-  transform: translate(-50%, -50%);
-  transition: top 140ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
 }
 
 .group-rail-panel {
@@ -443,6 +439,18 @@ button.ghost {
   pointer-events: auto;
 }
 
+.group-rail:hover .group-rail-track {
+  opacity: 0;
+}
+
+.group-rail-list button.active:hover {
+  background: #222;
+}
+
+.group-rail-list button:hover {
+  background: #f2f2f2;
+}
+
 .group-rail-title {
   padding: 10px 12px 2px;
   font-size: 0.84rem;
@@ -457,18 +465,6 @@ button.ghost {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.group-rail-actions {
-  display: flex;
-  gap: 6px;
-  padding: 0 10px 8px;
-}
-
-.group-rail-actions .ghost {
-  flex: 1;
-  padding: 7px 8px;
-  font-size: 0.8rem;
 }
 
 .group-rail-list {
@@ -684,7 +680,7 @@ button.ghost {
   width: min(760px, 100%);
 }
 
-.filter-group + .filter-group {
+.filter-group+.filter-group {
   margin-top: 12px;
 }
 
@@ -712,6 +708,10 @@ button.ghost {
   background: var(--brand);
   color: #fff;
   border-color: transparent;
+}
+
+.option-chip:hover {
+  color: #fff;
 }
 
 .site-footer {

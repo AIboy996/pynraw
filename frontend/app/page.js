@@ -172,10 +172,10 @@ export default function Home() {
     return (
       <main className="setup-page">
         <section className="setup-card">
-          <h1>NRAW Album</h1>
+          <h1>足迹 Album</h1>
           <p>正在恢复上次目录...</p>
         </section>
-        <footer className="site-footer">© 2026 NRAW Album. All rights reserved.</footer>
+        <footer className="site-footer">© 2026 足迹 Album. All rights reserved.</footer>
       </main>
     );
   }
@@ -184,7 +184,7 @@ export default function Home() {
     return (
       <main className="setup-page">
         <section className="setup-card">
-          <h1>NRAW Album</h1>
+          <h1>足迹 Album</h1>
           <p>先指定要扫描的目录，完成后进入相册页面。</p>
           <label htmlFor="root-input">图片目录</label>
           <input
@@ -196,7 +196,7 @@ export default function Home() {
           <button onClick={startScan} disabled={loading}>{loading ? '扫描中...' : '进入相册'}</button>
           {error && <p className="error">{error}</p>}
         </section>
-        <footer className="site-footer">© 2026 NRAW Album. All rights reserved.</footer>
+        <footer className="site-footer">© 2026 足迹 Album. All rights reserved.</footer>
       </main>
     );
   }
@@ -205,14 +205,18 @@ export default function Home() {
     <main className="shell-page">
       <aside className={`sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
         <div className="sidebar-head">
-          <h2 className="brand-text">NRAW</h2>
+          <h2 className="brand-text">足迹 Album</h2>
           <button
             className="icon-toggle"
             onClick={() => setSidebarOpen((prev) => !prev)}
             aria-label={sidebarOpen ? '收起侧栏' : '展开侧栏'}
             title={sidebarOpen ? '收起侧栏' : '展开侧栏'}
           >
-            <span aria-hidden="true">{sidebarOpen ? '◀' : '▶'}</span>
+            {sidebarOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+            )}
           </button>
         </div>
 
@@ -314,7 +318,7 @@ export default function Home() {
       )}
 
       <MediaViewerModal item={viewerItem} apiBase={API_BASE} rawExtensions={RAW_EXTENSIONS} onClose={() => setViewerItem(null)} />
-      <footer className="site-footer">© 2026 NRAW Album. All rights reserved.</footer>
+      <footer className="site-footer">© 2026 足迹 Album. All rights reserved.</footer>
     </main>
   );
 }
